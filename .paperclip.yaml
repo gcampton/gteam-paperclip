@@ -1,0 +1,544 @@
+schema: paperclip/v1
+agents:
+  coordinator:
+    role: coordinator
+    icon: git-branch
+    capabilities: Top-level orchestrator. Routes incoming tasks to the right GTeam
+      specialist. Creates subtasks, monitors progress, approves or rejects results.
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: false
+  accessibilityauditor:
+    role: accessibility-auditor
+    icon: user
+    capabilities: WCAG 2.2 accessibility auditing, assistive technology testing, ARIA
+      patterns, and remediation guidance for web and mobile applications.
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  accountant:
+    role: accountant
+    icon: user
+    capabilities: Financial analysis, bookkeeping review, expense categorisation,
+      and tax considerations. Works with P&L, balance sheets, and bank statements.
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  aiengineer:
+    role: ai-engineer
+    icon: user
+    capabilities: "AI/ML system design \u2014 model integration, RAG pipelines, prompt\
+      \ engineering, MLOps, and evaluation. Bridges ML research and production engineering."
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  brandstrategist:
+    role: brand-strategist
+    icon: user
+    capabilities: Brand identity, positioning, messaging strategy, voice and tone
+      guidelines, and brand consistency reviews. Works with logos, copy, campaigns,
+      and competitive positioning.
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  communitymanager:
+    role: community-manager
+    icon: user
+    capabilities: "Community platform management for Discord, Slack, Reddit, and forums\
+      \ \u2014 server setup, moderation, engagement automation, health metrics, and\
+      \ escalation."
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  contentcreator:
+    role: content-creator
+    icon: user
+    capabilities: Blog posts, landing copy, guides, and long-form content. Produces
+      publish-ready content with SEO metadata.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  copywriter:
+    role: copywriter
+    icon: user
+    capabilities: Direct-response copywriter for sales pages, email sequences, ad
+      copy, VSL scripts, and brand voice guidelines.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  crospecialist:
+    role: cro-specialist
+    icon: user
+    capabilities: Conversion rate optimisation specialist for landing page audits,
+      funnel analysis, A/B test design, and heatmap interpretation.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  customersuccess:
+    role: customer-success
+    icon: user
+    capabilities: Customer onboarding, health monitoring, retention, escalation handling,
+      and success planning. Works with support tickets, NPS data, and customer conversations.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  dataanalyst:
+    role: data-analyst
+    icon: user
+    capabilities: Data analysis, business intelligence, KPI dashboards, cohort analysis,
+      and data-driven recommendations. Works with raw data, SQL queries, spreadsheets,
+      and analytics tools.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  devops:
+    role: devops
+    icon: user
+    capabilities: Shipping, release management, documentation updates, CI/CD, and
+      engineering retrospectives.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  emailmarketer:
+    role: email-marketer
+    icon: user
+    capabilities: Email campaign strategy, sequence design, and full copywriting.
+      Produces ready-to-send emails with subject line variants.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  growthhacker:
+    role: growth-hacker
+    icon: user
+    capabilities: Rapid user acquisition, conversion optimisation, viral loops, and
+      growth experiments. Runs structured tests to find what works, then scales it.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  hrspecialist:
+    role: hr-specialist
+    icon: user
+    capabilities: HR specialist for job descriptions, interview frameworks, performance
+      reviews, onboarding plans, and employment law compliance flags.
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  ideasman:
+    role: ideas-man
+    icon: user
+    capabilities: "Deep niche research for online income opportunities \u2014 affiliate\
+      \ marketing, dropshipping, YouTube/TikTok ad revenue, AI websites, and digital\
+      \ products. Finds low-competition angles with real monetisation potential."
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  lawyer:
+    role: lawyer
+    icon: user
+    capabilities: Contract review, legal risk assessment, and document redlining.
+      Invoke with a contract file or pasted text.
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  paidmedia:
+    role: paid-media
+    icon: user
+    capabilities: Paid search (Google/Microsoft Ads), paid social (Meta/LinkedIn/TikTok),
+      account audits, tracking setup, and creative strategy. Turns ad spend into measurable
+      business outcomes.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  productmanager:
+    role: product-manager
+    icon: user
+    capabilities: Product discovery, PRD writing, roadmap planning, sprint prioritisation,
+      and go-to-market. Bridges user needs, business goals, and engineering reality.
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  projectmanager:
+    role: project-manager
+    icon: user
+    capabilities: Project scoping, task breakdown, timeline management, stakeholder
+      communication, and delivery. Converts specs into executable plans and keeps
+      projects on track.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  recruitment:
+    role: recruitment
+    icon: user
+    capabilities: Job description writing, candidate sourcing, screening, interview
+      process design, and offer management. Handles the full hiring cycle.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  sales:
+    role: sales
+    icon: user
+    capabilities: Sales strategy, pipeline building, outbound prospecting, deal qualification,
+      and proposal writing. Handles the full sales cycle from cold outreach to close.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  securityengineer:
+    role: security-engineer
+    icon: user
+    capabilities: "Application security \u2014 threat modeling, security audits, OWASP\
+      \ Top 10 reviews, secure architecture design, and vulnerability assessment."
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  seo:
+    role: seo
+    icon: user
+    capabilities: Technical SEO audit, keyword strategy, and on-page optimisation
+      recommendations. Provide a URL or page content.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  skillbuilder:
+    role: skill-builder
+    icon: user
+    capabilities: Build reference libraries and scaffold new GTeam specialists. Uses
+      the Skill-Seekers API for known technologies, falling back to WebFetch and curl
+      for anything else.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  socialmedia:
+    role: social-media
+    icon: user
+    capabilities: Social media strategy, content creation, and engagement planning
+      across platforms. Produces ready-to-post content.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  softwareengineer:
+    role: software-engineer
+    icon: user
+    capabilities: Code review, QA testing, and implementation support. Provide a repo,
+      URL, or task description.
+    adapter:
+      type: codex_local
+      config:
+        model: codex-1
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  technicalwriter:
+    role: technical-writer
+    icon: user
+    capabilities: API docs, developer guides, user manuals, release notes, and README
+      files. Produces clear, accurate technical documentation that users can actually
+      follow.
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  uidesigner:
+    role: ui-designer
+    icon: user
+    capabilities: Design systems, visual QA, and UX review. Provide a URL, screenshots,
+      or a product description.
+    adapter:
+      type: cursor
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+  uxresearcher:
+    role: ux-researcher
+    icon: user
+    capabilities: "User research planning and execution \u2014 interviews, usability\
+      \ tests, surveys, and synthesis. Produces actionable insights, not observation\
+      \ reports."
+    adapter:
+      type: claude_local
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        enabled: true
+        wakeOnDemand: true
+        intervalSec: 3600
+        cooldownSec: 10
+        maxConcurrentRuns: 2
+sidebar:
+  agents:
+  - coordinator
+  - accessibilityauditor
+  - accountant
+  - aiengineer
+  - brandstrategist
+  - communitymanager
+  - contentcreator
+  - copywriter
+  - crospecialist
+  - customersuccess
+  - dataanalyst
+  - devops
+  - emailmarketer
+  - growthhacker
+  - hrspecialist
+  - ideasman
+  - lawyer
+  - paidmedia
+  - productmanager
+  - projectmanager
+  - recruitment
+  - sales
+  - securityengineer
+  - seo
+  - skillbuilder
+  - socialmedia
+  - softwareengineer
+  - technicalwriter
+  - uidesigner
+  - uxresearcher
